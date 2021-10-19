@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const orderSchema = new Schema({
-	id: { type: String },
+	id: { type: Number, unique: true, min: 1 },
 	title: { type: String, required: [true, "Must have a title"] },
 	date: Date,
 	type: { type: String, required: [true, "Must have a type"] },

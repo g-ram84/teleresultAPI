@@ -28,6 +28,12 @@ app.get("/orders", async (req, res) => {
 	res.send({ orders });
 });
 
+app.get("/orders/:id", async (req, res) => {
+	const { id } = req.params;
+	const orders = await Order.findById(id);
+	res.send({ orders });
+});
+
 app.post(
 	"/orders",
 	wrapAsync(async (req, res) => {

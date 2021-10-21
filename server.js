@@ -30,16 +30,23 @@ app.get("/orders", async (req, res) => {
 	res.send({ orders });
 });
 
-app.get("/orders/:id", async (req, res) => {
-	const { id } = req.params;
-	const orders = await Order.findById(id);
-	if (id === null) {
-		res.status(403);
-		res.send("Please ensure order ID is correct");
-	} else {
-		res.send({ orders });
-	}
-});
+app.get(
+	"/orders/:id",
+	wrapAsync(async (req, res) => {
+		const { id } = req.params;
+		if (id.length !== 24) {
+			res.status(404);
+			res.send("No entries for date and type");
+		}
+		const orders = await Order.findById(id);
+		if (orders === null) {
+			res.status(404);
+			res.send("No entries for date and type");
+		} else {
+			res.send({ orders });
+		}
+	})
+);
 
 app.get("/orders/:type/:date", async (req, res) => {
 	const ordersArr = [];
@@ -50,7 +57,7 @@ app.get("/orders/:type/:date", async (req, res) => {
 		console.log(e)
 	);
 	if (orders.length === 0) {
-		res.status(403);
+		res.status(404);
 		res.send("No entries for date and type");
 	} else if (orders) {
 		orders.forEach((e) => ordersArr.push(e.id));
@@ -71,7 +78,7 @@ app.post(
 	wrapAsync(async (req, res) => {
 		const order = new Order(req.query);
 		if (!order.title || !order.type || !order.date || !order.customer) {
-			res.status(403);
+			res.status(400);
 			res.send("Please complete all required fields");
 		}
 		await order.save();

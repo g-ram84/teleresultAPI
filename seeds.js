@@ -16,14 +16,12 @@ mongoose
 
 const seedOrder = [
 	{
-		// id: "1",
 		title: "new cell phone",
 		date: "2020-01-02",
 		type: "iPhone",
 		customer: "chalmers.graeme@gmail.com"
 	},
 	{
-		// id: "2",
 		title: "new laptop",
 		date: "2020-01-02",
 		type: "macbook",

@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Order = require("./models/order");
 
 mongoose
-	.connect("mongodb://localhost:27017/TeleResultsAPI", {
+	.connect("mongodb://localhost:27017/TeleResult", {
 		useNewUrlParser: true,
 		useUnifiedTopology: true
 	})
@@ -56,6 +56,36 @@ const seedOrder = [
 		date: "2020-01-02",
 		type: "iPhone",
 		customer: "gorddownie@thehip.ca"
+	},
+	{
+		title: "new cell phone",
+		date: "2020-01-02",
+		type: "iPhone",
+		customer: "gorddownie@thehip.ca"
+	},
+	{
+		title: "new cell phone",
+		date: "2020-01-02",
+		type: "iPhone",
+		customer: "billgates@microsoft.com"
+	},
+	{
+		title: "new cell phone",
+		date: "2020-01-02",
+		type: "iPhone",
+		customer: "lukewoodnutt@gmail.com"
+	},
+	{
+		title: "new cell phone",
+		date: "2020-01-02",
+		type: "iPhone",
+		customer: "dchalmers@rogers.com"
+	},
+	{
+		title: "new cell phone",
+		date: "2020-01-02",
+		type: "iPhone",
+		customer: "lorrainechalmers@gmail.com"
 	}
 ];
 

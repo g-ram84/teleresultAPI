@@ -19,12 +19,6 @@ const orderSchema = new Schema({
 	}
 });
 
-orderSchema.post("findOneAndDelete", async function (order) {
-	if (order.customer.length) {
-		const res = await Order.deleteMany({});
-	}
-});
-
 const Order = mongoose.model("Order", orderSchema);
 
 module.exports = Order;

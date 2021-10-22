@@ -44,6 +44,28 @@ Before sending the request, ensure the paramaters are set up with the proper key
 - Type
 - Customer
 
-  All values are of type String.
+All values are of type String.
 
-  ![Post-params](images/post-params.png)
+![Post-params](images/post-params.png)
+
+### GET Request to /orders
+
+Set the method to GET and enter the following in the URL bar `http://localhost:5000/orders`
+![GET-request](images/get-request-orders.png)
+
+This will show all orders in the database.
+![GET-request-results](images/get-request-orders-results.png)
+
+### GET Request to /orders/:id
+
+In order to see one specific order, we must copy the id value from an existing order. It can then be entered into the URL as follows `http://localhose:5000/orders/:id`
+![GET-request-order](images/get-id.png)
+Which will result in the following:
+![GET-order-result](images/get-id-results.png)
+
+### GET Request to /orders/:type/:date
+
+If we want to look at a detailed list of orders of 1 particular type by date, we can enter the following GET request into Postman `http://localhost:5000/orders/:id/:date`
+![get-date](images/get-type-date.png)
+This will show us all iPhone orders from this specific date, showing how many units were sold, what the individual order IDs are, and the name of each customer.
+![get-date-result](images/get-type-date-results.png)

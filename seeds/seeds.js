@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Order = require("./models/order");
+const Order = require("../models/order");
 
 mongoose
 	.connect("mongodb://localhost:27017/TeleResult", {
